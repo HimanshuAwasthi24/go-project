@@ -12,5 +12,10 @@ pipeline {
             sh "docker build -t go-app:latest ."
             }
         }
+        stage('deploy') {
+          steps {
+            sh "docker run -dp 8080:8080 go-app:latest"
+            }
+        }
     }
 }
