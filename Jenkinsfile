@@ -1,14 +1,14 @@
 pipeline {
-    agent docker{}
+    agent {label "vinod"}
 
     stages {
-        stage('Build-image') {
+        stage('git-clone') {
             steps {
-                echo 'Hello World'
+                git url: "https://github.com/HimanshuAwasthi24/go-project.git", branch: "main"
             }
         stage('Build-image') {
           steps {
-            echo 'Hello World'
+            sh "docker build -t go-app:latest ."
             }
         }
     }
