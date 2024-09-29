@@ -2,8 +2,7 @@ version: '3.8'
 
 services:
   go-app:
-    build:
-      context: .
+    image: "himanshu1425/go-app:latest"
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
