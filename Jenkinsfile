@@ -12,7 +12,7 @@ pipeline {
             sh "docker rm -f \$(docker ps -aq) && docker rmi -f \$(docker images -aq) && docker build -t go-app:latest ."
             }
         }
-         stage('Build-image') {
+         stage('push-image') {
           steps {
             withCredentials([usernamePassword('credentialsId':"dockerhub",
             passwordVariable:"dockerHubPass",
