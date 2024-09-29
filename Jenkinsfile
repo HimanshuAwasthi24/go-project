@@ -6,6 +6,7 @@ pipeline {
             steps {
                 git url: "https://github.com/HimanshuAwasthi24/go-project.git", branch: "main"
             }
+        }
         stage('Build-image') {
           steps {
             sh "docker build -t go-app:latest ."
