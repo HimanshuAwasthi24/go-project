@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build-image') {
           steps {
-            sh "docker build -t go-app:latest ."
+            sh "docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -aq) && docker build -t go-app:latest ."
             }
         }
         stage('deploy') {
