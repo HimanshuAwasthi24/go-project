@@ -14,7 +14,7 @@ pipeline {
         }
         stage('deploy') {
           steps {
-            sh "docker run -dp 8080:8080 go-app:latest"
+            sh "docker-compose up -d"
             }
         }
     }
