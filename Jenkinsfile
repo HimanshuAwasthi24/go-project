@@ -41,7 +41,7 @@ pipeline {
             steps {
                 sh "docker-compose up -d"
                 echo "Removing all Docker images except ${dockerHubUser}/${IMAGE_NAME}..."
-                sh "docker images -q | grep -v $(docker images -q ${dockerHubUser}/${IMAGE_NAME}) | xargs -r docker rmi"
+                sh "docker images -q | grep -v \$(docker images -q ${dockerHubUser}/${IMAGE_NAME}) | xargs -r docker rmi"
             }
         }
     }
