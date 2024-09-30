@@ -32,7 +32,6 @@ pipeline {
                         docker login -u ${dockerHubUser} -p ${dockerHubPass}
                         docker tag ${IMAGE_NAME} ${dockerHubUser}/${IMAGE_NAME}
                         docker push ${dockerHubUser}/${IMAGE_NAME}
-                        docker images -q | grep -v \$(docker images -q ${dockerHubUser}/${IMAGE_NAME}) | xargs -r docker rmi
                     """
                 }
             }
